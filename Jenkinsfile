@@ -11,12 +11,21 @@ pipeline {
                 bat 'mvn clean install'
             }
         }
+        
         stage('Test') {
             steps {
                 bat 'mvn test'
             }
         }
-         stage('Install Vercel CLI') {
+
+        stage('Setup Node.js') {
+            steps {
+                bat 'node -v'
+                bat 'npm -v'
+            }
+        }
+
+        stage('Install Vercel CLI') {
             steps {
                 bat 'npm install -g vercel' // Installs Vercel CLI
             }
