@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+     tools {
+        maven 'MAVEN' // Name of the Maven configuration in Jenkins
+    }
+    
     stages {
         stage ('Compile Stage') {
 
