@@ -3,6 +3,7 @@ pipeline {
 
      tools {
         maven 'MAVEN' // Name of the Maven configuration in Jenkins
+        nodejs 'NODEJS'
     }
 
     stages {
@@ -11,7 +12,7 @@ pipeline {
                 bat 'mvn clean install'
             }
         }
-        
+
         stage('Test') {
             steps {
                 bat 'mvn test'
