@@ -6,29 +6,14 @@ pipeline {
     }
 
     stages {
-        stage ('Compile Stage') {
-
+       stage('Build') {
             steps {
-                withMaven(maven : 'maven_3_5_0') {
-                    bat 'mvn clean compile'
-                }
+                bat 'mvn clean install'
             }
         }
-
-        stage ('Testing Stage') {
-
+        stage('Test') {
             steps {
-                withMaven(maven : 'maven_3_5_0') {
-                    bat 'mvn test'
-                }
-            }
-        }
-
-        stage ('Deployment Stage') {
-            steps {
-                withMaven(maven : 'maven_3_5_0') {
-                    bat 'mvn deploy'
-                }
+                bat 'mvn test'
             }
         }
     }
